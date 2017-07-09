@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Customer List</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="/boostrap/bootstrap.min.css">        </script>
+        <script src="/boostrap/boostrap.min.js">        </script>
+        <script src="/javascripts/jquery-2.2.3.min.js">        </script>
+        <!--
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+    </head>
+    <body class="body"> <center> <h2>CRUD operation using <strong>nodejs+express+mongodb</strong></h2><br>
+        <!-- /.box-header -->
+            <div class="table-responsive">
+            <center>
+
+              <table class="table table-hover " style="width:50%" id="example2"  >
+                <thead>
+                <a href="/customer/add" class="btn btn-primary btn-sm col-sm-offset-5  " >Add new customer</a>
+                <br><br>
+                <tr class="info">
+                  <th class="col-xs-3">First Name</th>
+                  <th class="col-xs-3">Last Name</th>
+                  <th class="col-xs-3">Email</th>
+                  <th><center>Edit</th>
+                  <th><center>Delete</th>
+                </tr>                                
+                </thead>
+                <tbody>
+
+                	
+                
+                </tbody>
+     
+                <!--
+                <tfoot>
+                <tr>
+                  <th>Rendering engine</th>
+                  <th>Browser</th>
+                  <th>Platform(s)</th>
+                  <th>Engine version</th>
+                  <th>CSS grade</th>
+                </tr>
+                </tfoot>
+                -->
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+         <script src="/javascripts/jquery-2.2.3.min.js"></script>
+         <script src="/globaljs/global_ajax.js"></script>
+          
+          
+
+<script>
+<% include ../config/config.js %>
+
+
+
+var constantobj = new constant();
+
+$(document).ready(function() {
+    globalObj.custom_ajax({
+        // "dataType": "JSON",
+        "type": "GET",
+        "url": constantobj.host + "/api/customer/list",
+        "success": { "test": "test_function" },
+        "error": { "ivObj": "test_function3" }
+    });
+    // });
+});
+
+var test = {
+    test_function: function(users) {
+        console.log(users);
+        // var html;
+        // for (var i = 0; i < users.length; i++) {
+        //     var id = users[i]._id;
+        //     var firstname = users[i].firstname;
+        //     var lastname = users[i].lastname;
+        //     var email = users[i].email;
+
+        //     id = jQuery.trim(id);
+
+        //     html +='<tr id="' + id + '" ><td id="'+firstname+'">' + users[i].firstname + '</td><td id="lastname">' + users[i].lastname + '</td><td id="email">' + users[i].email + '</td><td><button id="editbtn'+id+'" type="button" class="btn" onClick="edituser(\'' + id + '\')">Edit</button></td><td><button type="button" class="btn" onClick="deleteuser(\'' + id + '\')">Delete</button></td></tr>';
+        // }
+        // $('table#example2 tbody').html(html);
+
+        var html;
+        for (var i = 0; i < users.length; i++) {
+            var id = users[i]._id;
+            var firstname = users[i].firstname;
+            var lastname = users[i].lastname;
+            var email = users[i].email;
+
+            id = jQuery.trim(id);
+
+            html +='<tr class="warning" id="' + id + '" ><td id="firstname'+id+'">' + users[i].firstname + '</td><td id="lastname'+id+'">' + users[i].lastname + '</td><td id="email'+id+'">' + users[i].email + '</td><td> <button type="button" class="button" id="edit_button'+id+'" value="Edit row" class="image-button" onclick="edit_row(\'' + id + '\');" data-toggle="tooltip" data-placement="bottom" title="Edit"><img src="/images/edit1.png" class="image-button" /></button><button type="button" style="display:none" class="button" id="save_button'+id+'" value="Save" class="button-img" onClick="save_row(\'' + id + '\'); " data-toggle="tooltip" data-placement="bottom" title="Save"><img src="/images/save.png" class="image-button" /></button></td><td><button type="button" class="button" onClick="deleteuser(\'' + id + '\')" data-toggle="tooltip" data-placement="bottom" title="Delete"><img src="/images/delete.png" class="image-button" /></button></td></tr>';
+ 
+            
+        }
+        $('table#example2 tbody').html(html);
+
+    },
+    test_function1: function() {
+        // window.location
+    },
+};
+
+var ivObj = {
+    test_function3: function() {
+        alert("Error!");
+    }
+}
+
+var testdelete = {
+    test_function: function(data, param) {
+        // var answer = confirm("Are you sure you want to delete?");
+        // if (answer) {
+        //     $("#" + param.id).remove();
+        // }else{
+        //     test_function();
+        // }
+            $("#" + param.id).remove();
+        
+
+    }
+}
+
+function deleteuser(myid) {
+    myid = jQuery.trim(myid);
+    // $("#"+myid).remove();
+    globalObj.custom_ajax({
+        "dataType": "JSON",
+        "type": "DELETE",
+        "url": constantobj.host + "/api/customer/delete/" + myid,
+        "customData": { 'id': myid },
+        "success": { "testdelete": "test_function" },
+        "error": { "ivObj": "test_function3" }
+    });
+}
+
+function edit_row(no) {
+    document.getElementById("edit_button" + no).style.display = "none";
+    document.getElementById("save_button" + no).style.display = "block";
+
+    var fname = document.getElementById("firstname" + no);
+    var lname = document.getElementById("lastname" + no);
+    var email = document.getElementById("email" + no);
+
+    var fname_data = fname.innerHTML;
+    var lname_data = lname.innerHTML;
+    var email_data = email.innerHTML;
+
+    fname.innerHTML = "<input type='text' id='firstname_text" + no + "' value='" + fname_data + "'>";
+    lname.innerHTML = "<input type='text' id='lastname_text" + no + "' value='" + lname_data + "'>";
+    email.innerHTML = "<input type='text' id='email_text" + no + "' value='" + email_data + "'>";
+}
+
+var testupdate = {
+    test_function: function(data, param) {
+   
+    document.getElementById("firstname" + param.id).innerHTML = param.firstname;
+    document.getElementById("lastname" + param.id).innerHTML = param.lastname;
+    document.getElementById("email" + param.id).innerHTML = param.email;
+
+    document.getElementById("edit_button" + param.id).style.display = "block";
+    document.getElementById("save_button" + param.id).style.display = "none";
+
+
+
+    }
+}
+
+function save_row(myid) {
+    var fname_val = document.getElementById("firstname_text" + myid).value;
+    var lname_val = document.getElementById("lastname_text" + myid).value;
+    var email_val = document.getElementById("email_text" + myid).value;
+
+    globalObj.custom_ajax({
+        // "dataType": "JSON",
+        "type": "POST",
+        "url": constantobj.host + "/api/customer/update/" + myid,
+        "data": { 'id': myid, 'firstname': fname_val, 'lastname': lname_val, 'email': email_val },
+        "customData": {'id': myid,'firstname': fname_val, 'lastname': lname_val, 'email': email_val},
+        "success": { "testupdate": "test_function" },
+        "error": { "ivObj": "test_function3" }
+    });
+    
+
+    // document.getElementById("firstname" + myid).innerHTML = fname_val;
+    // document.getElementById("lastname" + myid).innerHTML = lname_val;
+    // document.getElementById("email" + myid).innerHTML = email_val;
+
+    // document.getElementById("edit_button" + myid).style.display = "block";
+    // document.getElementById("save_button" + myid).style.display = "none";
+}
+
+// for tooltip
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+      </script>
+    </body>
+</html>

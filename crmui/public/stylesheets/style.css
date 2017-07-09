@@ -1,0 +1,44 @@
+body {
+    /*padding: 50px;*/
+    /*padding-top: 10px;*/
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    /*-webkit-text-fill-color: #00B7FF;*/
+    /*background-image: url('/images/gif/giphy.gif');*/
+    /*background-size: cover;*/
+    /*background-size: 87%;*/
+}
+
+.body {
+    background-image: url('/images/gif/giphy.gif');
+}
+
+a {
+    color: #00B7FF;
+}
+
+h2 {
+    -webkit-text-fill-color: seashell;
+    color: yellowgreen;
+}
+
+.image-button {
+    /*background: #ccc url('/images/Button-Delete-icon.png') no-repeat top left;*/
+    padding-left: 10px;
+    height: 20px;
+}
+
+.button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+}
