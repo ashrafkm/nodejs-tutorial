@@ -10,4 +10,4 @@ All the api's are in crmapi project and clienside codes are in crmui project and
 
 # Installation
 1. Perform a clone of this repo.
-2. Make sure NodeJS, Express and MongoDB is installed
+2. Make sure NodeJS, Express and MongoDB is installed in your pc.
