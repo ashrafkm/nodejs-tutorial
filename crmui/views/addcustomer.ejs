@@ -16,7 +16,7 @@
     <center>
     <div class="col-md-4 col-sm-offset-4">
     
-        <h4><img src="/images/view1.png" class="image-button" alt="View" title="View">Add customer details</h4>    
+        <h4>Add customer details</h4>    
             <form class="form-horizontal" method="POST" id="formadduser" action="">
 
                 <div class="form-group">
@@ -58,8 +58,12 @@
                     </div>
                   </div>
                 </div>-->
+                  
                 <input type="button" class="btn btn-info pull-left" id="update" value="Add Customer" onClick="adduser();">
-                <a href="/customer/list"><img src="/images/view1.png" data-toggle="tooltip" data-placement="bottom" title="View customers" class="image-button" alt=""></a>
+                <a href="/customer/list" class="btn col-sm-offset-1"><i class="glyphicon glyphicon-user"></i>View Customers </a>
+                
+
+             <!--   <button type="button" class="btn col-sm-offset-1 button-img"><a href="/customer/list" data-toggle="tooltip" data-placement="bottom" title="View customers"> View Customer</a></button> -->
               </div>
               <!-- /.box-footer -->
             </form>
