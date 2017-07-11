@@ -22,8 +22,8 @@ router.get('/list', function(req, res, next) {
 });
 
 // VIEW
-router.get('/list:id', function(req, res, next) {
-    res.render('addcustomer');
+router.get('/view', function(req, res, next) {
+    res.render('view');
 });
 
 

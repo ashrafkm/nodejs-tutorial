@@ -8,7 +8,11 @@
         
        <link rel="stylesheet" href="http://localhost:3002/stylesheets/bootstrapp.min.css"> 
         <script src="http://localhost:3002/javascripts/jquery-3.2.1.min.js"></script>
-        <script src="http://localhost:3002/javascripts/bootstrapp.min.js"></script>    
+        <script src="http://localhost:3002/javascripts/bootstrapp.min.js"></script>   
+        <script src="http://localhost:3002/javascripts/jquery.dataTables.min.js"></script>    
+        <script src="http://localhost:3002/javascripts/dataTables.bootstrap.min.js"></script>    
+        
+         
         
       <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -18,7 +22,7 @@
     <body > <center> <h2>CRUD operation using <strong>nodejs+express+mongodb</strong></h2><br>
         <!-- /.box-header -->
             <div class="table-responsive">
-            <center>
+            
 
               <table class="table table-hover" style="width:50%" id="example2"  >
                 <thead>
@@ -32,7 +36,7 @@
                   <th><center>Delete</th>
                 </tr>                                
                 </thead>
-                <tbody>
+                <tbody>             
 
                 	
                 
@@ -55,6 +59,10 @@
           </div>
           <!-- /.box -->
 
+      <div class="col-md-12 text-center">
+      <ul class="pagination pagination-lg pager" id="myPager"></ul>
+      </div>
+
 
         <script src="/globaljs/global_ajax.js"></script>
 <script>
@@ -63,6 +71,11 @@
 
 
     var constantobj = new constant();
+
+
+    $(document).ready(function() {
+        $('table#example3').DataTable();
+    });        
 
     $(document).ready(function() {
         globalObj.custom_ajax({
@@ -90,7 +103,7 @@
 
                 id = jQuery.trim(id);
 
-                html += '<tr class="warning" id="' + id + '" ><td id="firstname' + id + '">' + users[i].firstname + '</td><td id="lastname' + id + '">' + users[i].lastname + '</td><td id="email' + id + '">' + users[i].email + '</td><td> <button type="button" class="button" id="edit_button' + id + '" value="Edit row" class="image-button" onclick="edit_row(\'' + id + '\');" data-toggle="tooltip" data-placement="bottom" title="Edit"><img src="/images/edit1.png" class="image-button" /></button><button type="button" style="display:none" class="button" id="save_button' + id + '" value="Save" class="button-img" onClick="save_row(\'' + id + '\'); " data-toggle="tooltip" data-placement="bottom" title="Save"><img src="/images/save.png" class="image-button" /></button></td><td><button type="button" class="button" onClick="deleteuser(\'' + id + '\')" data-toggle="tooltip" data-placement="bottom" title="Delete"><img src="/images/delete.png" class="image-button" /></button></td></tr>';
+                html += '<tr class="warning" id="' + id + '" ><td id="firstname' + id + '">' + users[i].firstname + '</td><td id="lastname' + id + '">' + users[i].lastname + '</td><td id="email' + id + '">' + users[i].email + '</td><td> <button type="button" class="button" id="edit_button' + id + '" value="Edit row" class="image-button" onclick="edit_row(\'' + id + '\');" data-toggle="tooltip" data-placement="bottom" title="Edit"><img src="/images/edit1.png" class="image-button" /></button><button type="button" style="display:none" class="button" id="save_button' + id + '" value="Save" class="button-img" onClick="save_row(\'' + id + '\'); " data-toggle="tooltip" data-placement="bottom" title="Save"><img src="/images/save.png" class="image-button" /></button></td><td><button type="button" class="button" onClick="deleteuser(\'' + id + '\')"> <img src="/images/delete.png" class="image-button" data-toggle="tooltip" data-placement="bottom" title="Delete" /></button></td></tr>';
             }
             $('table#example2 tbody').html(html);
 
@@ -205,6 +218,10 @@
     $(function() {
         $('[data-toggle="tooltip"]').tooltip()
     })
+
+
+
+    
 </script>          
           
 

@@ -6,9 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/stylesheets/style.css">
 
-        <link rel="stylesheet" href="/boostrap/bootstrap.min.css">        </script>
-        <script src="/boostrap/boostrap.min.js">        </script>
-        <script src="/javascripts/jquery-2.2.3.min.js">        </script>
+
+       <link rel="stylesheet" href="http://localhost:3002/stylesheets/bootstrapp.min.css"> 
+        <script src="http://localhost:3002/javascripts/jquery-3.2.1.min.js"></script>
+        <script src="http://localhost:3002/javascripts/bootstrapp.min.js"></script>   
+
     </head>
     <body>
     <center>
@@ -57,13 +59,12 @@
                   </div>
                 </div>-->
                 <input type="button" class="btn btn-info pull-left" id="update" value="Add Customer" onClick="adduser();">
-                <button type="button" class="btn btn-info col-sm-offset-1" id="button" ><a href="/customer/list">View Customers</a></button>
+                <a href="/customer/list"><img src="/images/view1.png" data-toggle="tooltip" data-placement="bottom" title="View customers" class="image-button" alt=""></a>
               </div>
               <!-- /.box-footer -->
             </form>
           </div>
           <!-- /.box -->
-          <script src="/javascripts/jquery-2.2.3.min.js"></script>
 
           <script src="/globaljs/global_ajax.js"></script>
 
@@ -115,6 +116,12 @@ function adduser() {
         "error": { "ivObj": "test_function3" }
     });
 }
+
+    // for tooltip
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
 
 </script>
 </body>
