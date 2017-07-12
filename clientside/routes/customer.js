@@ -11,14 +11,6 @@ router.get('/', function(req, res, next) {
 // GET list of customers
 router.get('/list', function(req, res, next) {
     res.render('list');
-    // var id = req.body.id;
-    /*mongodb.connect(url, function(err, db) {
-        db.collection('users').find({ _id: objectid(req.params.id) }).toArray((err, result) => {
-            if (err) return console.log(err);
-            res.send(result);
-            // res.render('userlist', { users: result });
-        });
-    });*/
 });
 
 // VIEW
