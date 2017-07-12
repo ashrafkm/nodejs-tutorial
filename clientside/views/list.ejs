@@ -1,47 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Customer List</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/stylesheets/style.css">
-        
-       <link rel="stylesheet" href="http://localhost:3002/stylesheets/bootstrapp.min.css"> 
-        <script src="http://localhost:3002/javascripts/jquery-3.2.1.min.js"></script>
-        <script src="http://localhost:3002/javascripts/bootstrapp.min.js"></script>   
-        <script src="http://localhost:3002/javascripts/jquery.dataTables.min.js"></script>    
-        <script src="http://localhost:3002/javascripts/dataTables.bootstrap.min.js"></script>    
-        
-         
-        
-      <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-
-    </head>
-    <body > <center> <h2>CRUD operation using <strong>nodejs+express+mongodb</strong></h2><br>
+<% include header.ejs %>
+<body>
+    <center>
+        <h2>CRUD operation using <strong>nodejs+express+mongodb</strong></h2><br>
         <!-- /.box-header -->
-            <div class="table-responsive">
-            
+        <div class="table-responsive">
 
-              <table class="table table-hover" style="width:50%" id="example2"  >
+
+            <table class="table table-hover" style="width:50%" id="example2">
                 <thead>
-                <a href="/customer/add" class="btn btn-primary btn-sm col-sm-offset-5  " >Add new customer</a>
-                <br><br>
-                <tr class="info">
-                  <th class="col-xs-3">First Name</th>
-                  <th class="col-xs-3">Last Name</th>
-                  <th class="col-xs-3">Email</th>
-                  <th><center>Edit</th>
-                  <th><center>Delete</th>
-                </tr>                                
+                    <a href="/customer/add" class="btn btn-primary btn-sm col-sm-offset-5  ">Add new customer</a>
+                    <br><br>
+                    <tr class="info">
+                        <th class="col-xs-3">First Name</th>
+                        <th class="col-xs-3">Last Name</th>
+                        <th class="col-xs-3">Email</th>
+                        <th>
+                            <center>Edit</th>
+                        <th>
+                            <center>Delete</th>
+                    </tr>
                 </thead>
-                <tbody>             
+                <tbody>
 
-                	
-                
                 </tbody>
-     
+
                 <!--
                 <tfoot>
                 <tr>
@@ -53,23 +35,14 @@
                 </tr>
                 </tfoot>
                 -->
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+            </table>
+        </div>
+        <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+   
 
-      <div class="col-md-12 text-center">
-      <ul class="pagination pagination-lg pager" id="myPager"></ul>
-      </div>
-
-
-        <script src="/globaljs/global_ajax.js"></script>
 <script>
-    <% include ../config/config.js %>
-
-
-
     var constantobj = new constant();
 
 
@@ -128,8 +101,6 @@
             //     test_function();
             // }
             $("#" + param.id).remove();
-
-
         }
     }
 
@@ -178,9 +149,6 @@
 
             document.getElementById("edit_button" + param.id).style.display = "block";
             document.getElementById("save_button" + param.id).style.display = "none";
-
-
-
         }
     }
 
@@ -218,13 +186,6 @@
     $(function() {
         $('[data-toggle="tooltip"]').tooltip()
     })
-
-
-
     
-</script>          
-          
-
-
-    </body>
-</html>
+</script>   
+</body>

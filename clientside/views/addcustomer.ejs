@@ -1,52 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Add customers</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/stylesheets/style.css">
-
-
-       <link rel="stylesheet" href="http://localhost:3002/stylesheets/bootstrapp.min.css"> 
-        <script src="http://localhost:3002/javascripts/jquery-3.2.1.min.js"></script>
-        <script src="http://localhost:3002/javascripts/bootstrapp.min.js"></script>   
-
-    </head>
-    <body>
+<% include header.ejs %>
+<body>
     <center>
-    <div class="col-md-4 col-sm-offset-4">
-    
-        <h4>Add customer details</h4>    
+        <div class="col-md-4 col-sm-offset-4">
+
+            <h4>Add customer details</h4>
             <form class="form-horizontal" method="POST" id="formadduser" action="">
 
                 <div class="form-group">
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" autofocus>
-                  </div>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" autofocus>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name">
-                  </div>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name">
+                    </div>
                 </div>
 
                 <div class="form-group">
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                  </div>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    </div>
                 </div>
 
                 <div class="form-group">
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                  </div>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
                 </div>
 
                 <div class="form-group">
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Confirm Password">
-                  </div>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Confirm Password">
+                    </div>
                 </div>
 
                 <!--<div class="form-group">
@@ -58,22 +45,20 @@
                     </div>
                   </div>
                 </div>-->
-                  
+
                 <input type="button" class="btn btn-info pull-left" id="update" value="Add Customer" onClick="adduser();">
-                <a href="/customer/list" class="btn col-sm-offset-1"><i class="glyphicon glyphicon-user"></i>View Customers </a>
-                
+                <a href="/customer/list" class="btn col-sm-offset-1">View Customers </a>
 
-             <!--   <button type="button" class="btn col-sm-offset-1 button-img"><a href="/customer/list" data-toggle="tooltip" data-placement="bottom" title="View customers"> View Customer</a></button> -->
-              </div>
-              <!-- /.box-footer -->
-            </form>
-          </div>
-          <!-- /.box -->
 
-          <script src="/globaljs/global_ajax.js"></script>
+                <!--   <button type="button" class="btn col-sm-offset-1 button-img"><a href="/customer/list" data-toggle="tooltip" data-placement="bottom" title="View customers"> View Customer</a></button> -->
+        </div>
+        <!-- /.box-footer -->
+        </form>
+        </div>
+        <!-- /.box -->
+    
 
 <script>
-<% include ../config/config.js %>
 
 var test = {
     test_function: function() {
@@ -129,4 +114,3 @@ function adduser() {
 
 </script>
 </body>
-</html>
